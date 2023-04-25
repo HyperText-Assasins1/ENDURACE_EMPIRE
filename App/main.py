@@ -16,7 +16,20 @@ from App.controllers import (
 )
 
 from App.views import views
-from App.database import db
+import click,pytest,sys
+import config_overrides
+
+from flask.cli import with_appcontext,AppGroup
+
+from App.database import db, get_migrate
+from App.models import *
+from App.main import *
+from App.controllers import *
+
+app = create_app()
+migrate = get_migrate(app)
+
+
 
 def add_views(app):
     for view in views:
@@ -47,6 +60,7 @@ def create_app(config_overrides={}):
     app.app_context().push()
 
     with app.app_context():
+        db.drop_all()
         db.create_all()
         get_data()
     return app
