@@ -25,6 +25,14 @@ import json
 
 index_views = Blueprint('index_views', __name__, template_folder='../templates')
 
+@index_views.route('/',methods = ['GET'])
+def init():
+    db.drop_all()
+    db.create_all()
+    create_user('bob','bob@mail.com', 'bobpass')
+    get_data()
+    return jasonify(message='db initialized!')
+    
 @index_views.route('/app', methods=['GET'])
 @index_views.route('/app/<int:category>', methods=['GET'])
 #need to set up login things
