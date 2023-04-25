@@ -47,9 +47,7 @@ def create_app(config_overrides={}):
     app.app_context().push()
 
     with app.app_context():
-        db.drop_all()
         db.create_all()
-        create_user(username='bob',password='bobpass',email='bob@gmail.com')
     return app
 
     
