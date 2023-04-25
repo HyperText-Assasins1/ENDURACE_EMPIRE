@@ -24,42 +24,42 @@ def initialize():
     print('database intialized')
 
 @app.cli.command("get-data", help="Creates and initializes the data from the api")
-def get_data():
-    # add all the exercises here
-    url = 'https://wger.de/api/v2/exercise/?format=json&limit=800'
+# def get_data():
+#     # add all the exercises here
+#     url = 'https://wger.de/api/v2/exercise/?format=json&limit=800'
 
-    # https://wger.de/api/v2/exercise/?format=json&limit=200 sets the amount of exercises
-    # to a limit of 200, the limit can be altered or removed
+#     # https://wger.de/api/v2/exercise/?format=json&limit=200 sets the amount of exercises
+#     # to a limit of 200, the limit can be altered or removed
     
-    response = requests.get(url)
+#     response = requests.get(url)
 
-    # Check if the request was successful
-    if response.status_code == 200:
+#     # Check if the request was successful
+#     if response.status_code == 200:
         
-        data = response.json()
-        # this loops through th size of the data['results'] and if the language == 2 (english)
-        # then print the exercise name
-        for i in range (len(data['results'])):
+#         data = response.json()
+#         # this loops through th size of the data['results'] and if the language == 2 (english)
+#         # then print the exercise name
+#         for i in range (len(data['results'])):
             
-            if(data['results'][i]['id']) == 91:
-                    print(data['results'][i]['description'])
+#             if(data['results'][i]['id']) == 91:
+#                     print(data['results'][i]['description'])
 
 
-            if(data['results'][i]['language'] == 2):
-                create_exercise(data['results'][i]['name'], data['results'][i]['description'], data['results'][i]['category'])
+#             if(data['results'][i]['language'] == 2):
+#                 create_exercise(data['results'][i]['name'], data['results'][i]['description'], data['results'][i]['category'])
 
         
 
 
-    user = get_user_by_username('bob')
-    user = user.get_json()
+#     user = get_user_by_username('bob')
+#     user = user.get_json()
 
-    exerciseSetName = "oogabooga"
+#     exerciseSetName = "oogabooga"
 
-    testExerciseID = get_exercise_by_id(1)
-    testExerciseID = testExerciseID.get_json()
+#     testExerciseID = get_exercise_by_id(1)
+#     testExerciseID = testExerciseID.get_json()
 
-    add_exerciseSet(exerciseSetName ,user['id'], testExerciseID['id'])
+#     add_exerciseSet(exerciseSetName ,user['id'], testExerciseID['id'])
 
 '''
 User Commands
