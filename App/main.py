@@ -17,7 +17,6 @@ from App.controllers import (
 
 from App.views import views
 import click,pytest,sys
-import config_overrides
 
 from flask.cli import with_appcontext,AppGroup
 
