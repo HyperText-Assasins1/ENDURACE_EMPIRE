@@ -15,21 +15,6 @@ from App.controllers import (
     setup_flask_login
 )
 
-from App.views import views
-import click,pytest,sys
-
-from flask.cli import with_appcontext,AppGroup
-
-from App.database import db, get_migrate
-from App.models import *
-from App.main import create_app
-from App.controllers import *
-
-app = create_app()
-migrate = get_migrate(app)
-
-
-
 def add_views(app):
     for view in views:
         app.register_blueprint(view)

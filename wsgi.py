@@ -3,6 +3,9 @@ from flask import Flask
 from flask.cli import with_appcontext, AppGroup
 
 from App.database import db, get_migrate
+from App.controllers import *
+
+from App.models import *
 from App.main import create_app
 from App.controllers import *
 
