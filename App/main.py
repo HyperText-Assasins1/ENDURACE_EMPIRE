@@ -48,6 +48,7 @@ def create_app(config_overrides={}):
 
     with app.app_context():
         db.create_all()
+        get_data()
     return app
 
     
