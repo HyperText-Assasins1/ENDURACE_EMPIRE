@@ -1,55 +1,40 @@
 {% extends "layout.html" %}
-{% block title %}App Users{% endblock %}
-{% block page %}App Users{% endblock %}
+{% block title %}SIGNUP{% endblock %}
+{% block page %}EnduranceEmpire{% endblock %}
 
 {{ super() }}
 
 {% block content %}
-    <div class="row">
-        <p>
-            This is table is renderd on the Server. Flask gets the data from the database and uses jinja templates to dyanmically render this page when a request is sent to <a href="/users">/users</a>.
-        </p>
-    </div>
-
-    <div class="row">
-      <form class="col s12" method="POST" action="/users">
-        
-        <div class="row">
-          <div class="input-field col s6">
-            <input placeholder="Username" name="username" type="text" class="validate">
+ <body  class = "Signup_page">
+    <div class="content fill-space">
+      <div class="subcontent center-vertical">
+        <h4 class="center">Sign Up</h4>
+    
+        <form id="signupForm" method="POST" action="/signup" style="padding:1em">
+          <div class="row">
+            <div class="input-field col s12">
+              <input placeholder="Username" name="username" type="text" class="validate">
             <label for="username">Username</label>
+            </div>
           </div>
-          <div class="input-field col s6">
-            <input placeholder="password" name="password" type="password" class="validate">
-            <label for="password">Password</label>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <input placeholder="Email" name="email" type="text" class="validate">
+            <label for="email">Email</label>
+            </div>
           </div>
-        </div>
       
-        <div class="row">
-          <div class="input-field col s12">
-            <button class="btn waves-effect waves-light right purple" type="submit" name="action">Submit</button>
+          <div class="row">
+            <div class="input-field col s12">
+              <input placeholder="password" name="password" type="password" class="validate">
+            <label for="password">Password</label>
+            </div>
           </div>
-        </div> 
 
-      </form>
-    </div>
-
-    <div class="row">
-      <table>
-        <thead>
-          <tr>
-            <th>Id</th><th>Username</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for user in users %}
-            <tr>
-                <td>{{user.id}}</td>
-                <td>{{user.username}}</td>
-            </tr>
-          {% endfor %}
-        <tbody>
-      </table>
-    </div>
-
+          <div class="col s3 card-action right-align">
+              <input type="submit" class="blue text-white btn" value="Sign up">
+            </div>
+          </div>
+</body>
 {% endblock %}
